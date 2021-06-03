@@ -1,0 +1,41 @@
+{
+  "backgroundType": "gradient",
+  "plainBackgroundMode": "daylight",
+  "gradientColors": "#654ea3, #eaafc8, #893FA6",
+  "FirstName": "Cláudia",
+  "MiddleName": "",
+  "LastName": "Prudente",
+  "devDesc": "Passionate about changing the world with technology.",
+  "icons": [
+    {
+      "id": 0,
+      "image": "fa-github",
+      "url": "https://github.com/clauprudente/",
+      "style": "socialicons"
+    },
+    {
+      "id": 1,
+      "image": "fa-linkedin",
+      "url": "https://www.linkedin.com/in/claudiampsantos/",
+      "style": "socialicons"
+    },    
+    {
+      "id": 2,
+      "image": "fa-medium",
+      "url": "https://medium.com/@claudiaprudente/",
+      "style": "socialicons"
+    }
+  ],
+  "aboutHeading": "About Me",
+  "showInstaProfilePic": false,
+  "instaLink": "https://www.instagram.com/",
+  "instaUsername": "clauprudente",
+  "instaQuerry": "/?__a=1",
+  "projectHeading": "Recent Projects",
+  "gitHubLink": "https://api.github.com/users/",
+  "gitHubUsername": "clauprudente",
+  "gitHubQuerry": "/repos?sort=updated&direction=desc",
+  "projectsLength": 4,
+  "showNavigationbar": true,
+  "showBlog": false
+}

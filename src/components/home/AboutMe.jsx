@@ -1,69 +1,36 @@
 import React from "react";
-import Pdf from "../../editable-stuff/resume.pdf";
+import Profile from "../../editable-stuff/Profile.jpg"
 
-import axios from "axios";
-
-const pictureLinkRegex = new RegExp(
-  /[(http(s)?):(www.)?a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/
-);
-
-const AboutMe = ({ heading, message, link, imgSize, resume }) => {
-  const [profilePicUrl, setProfilePicUrl] = React.useState("");
-  const [showPic, setShowPic] = React.useState(Boolean(link));
-
-  React.useEffect(() => {
-    if (link && !pictureLinkRegex.test(link)) {
-      handleRequest();
-    } else {
-      setProfilePicUrl(link);
-    }
-  }, [link]);
-
-  const handleRequest = async () => {
-    const instaLink = "https://www.instagram.com/";
-    const instaQuery = "/?__a=1";
-    try {
-      const response = await axios.get(instaLink + link + instaQuery);
-      setProfilePicUrl(response.data.graphql.user.profile_pic_url_hd);
-    } catch (error) {
-      setShowPic(false);
-      console.error(error.message);
-    }
-  };
-
+import {
+  aboutHeading
+} from "../../editable-stuff/configurations.json";
+const divStyle = {
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center'
+};
+const AboutMe = () => {
   return (
-    <div id="aboutme" className="jumbotron jumbotron-fluid m-0">
+    <div id="aboutme" className="jumbotron jumbotron-fluid m-0" style={{backgroundColor:'#f7f7f7'}}>
       <div className="container container-fluid">
-        <div className="row">
-          <div className="col-5 d-none d-lg-block align-self-center">
-            {showPic && (
+        <div className="row" style={divStyle}>
+            <div className="col-5 d-none d-lg-inline align-self-center">
               <img
                 className="border border-secondary rounded-circle"
-                src={profilePicUrl}
+                src={Profile}
                 alt="profilepicture"
-                width={imgSize}
-                height={imgSize}
+                width="375"
+                height="375"
               />
-            )}
-          </div>
-
-          <div className={`col-lg-${showPic ? "7" : "12"}`}>
-            <h2 className="display-4 mb-5 text-center">{heading}</h2>
-            <p className="lead text-center">{message}</p>
-            {resume && (
-              <p className="lead text-center">
-                <a
-                  className="btn btn-outline-dark btn-lg"
-                  href={resume}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  role="button"
-                  aria-label="Resume/CV"
-                >
-                  Resume
-                </a>
-              </p>
-            )}
+            </div>
+            <div className="col d-lg-inline align-self-center">
+            <h1 className="display-4 mb-5 text-center">{aboutHeading}</h1>
+            <h4>Hello World! <span role="img" aria-label="Emoji">👋</span></h4>
+            <p className="lead">
+              <span role="img" aria-label="Emoji">💼</span> I'm currently working as a Front-end developer and UI designer.<br></br>
+              <span role="img" aria-label="Emoji">💪</span> Learning Javascript and their frameworks<br></br>
+              <span role="img" aria-label="Emoji">🏠</span> Based in São Paulo - Brasil<br></br>
+              <span role="img" aria-label="Emoji">👩</span> Pronouns: <strong>She|Her|Ela</strong></p><br/>
           </div>
         </div>
       </div>
